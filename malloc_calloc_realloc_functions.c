@@ -16,6 +16,8 @@ void malloc_function(int n){
             printf("%d ", *(ptr+i));
         }
     }
+    free(ptr);
+    ptr = NULL;//always a good practice to allocate the freed variable to NULL
 }
 void calloc_and_realloc_function(int n){
     int i;
@@ -45,6 +47,8 @@ void calloc_and_realloc_function(int n){
             printf("%d ", *(ptr+i));
         }
     }
+    free(ptr);
+    ptr = NULL;
 }
 void main(){
     int n;
