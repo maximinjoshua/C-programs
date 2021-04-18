@@ -68,6 +68,19 @@ struct node* insert(struct node* root, int d){
     return root;
 
 }
+int height(struct node* root){
+    if(root == NULL){
+        return -1;
+    }
+    int leftheight = height(root->lchild);
+    int rightheight = height(root->rchild);
+    if(leftheight<rightheight){
+        return rightheight+1;
+    }
+    else{
+        return leftheight+1;
+    }
+}
 int main(){
     struct node* root = NULL;
     root = insert(root, 78);
@@ -76,9 +89,9 @@ int main(){
     root = insert(root, 89);
     root = insert(root, 36);
     root = insert(root, 97);
-    root = delete(root, 36);
+    // root = delete(root, 36);
     printf("%d\n",root->data);
     printf("%d\n",root->lchild->lchild->rchild->data);
-
-
+    int h = height(root);
+    printf("%d", h);
 }
